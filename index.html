@@ -233,17 +233,19 @@
 
   /* curator's note (provenance) */
   .provenance{
-    display:grid; grid-template-columns:1fr; gap:clamp(22px,4vw,44px); align-items:start;
+    display:grid; grid-template-columns:1.24fr .76fr; gap:clamp(22px,4vw,44px); align-items:start;
     background:linear-gradient(180deg,var(--panel2),var(--panel));
     border:1px solid var(--line); border-radius:16px; padding:clamp(26px,4vw,42px);
   }
   .provenance p{color:var(--ink-dim); margin:0 0 15px; font-size:15px}
-  .provenance p:last-child{margin-bottom:0}
-  .prov-prose{display:grid; grid-template-columns:1fr 1fr; gap:0 clamp(24px,4vw,46px)}
   .provenance p b{color:var(--ink)}
   .provenance .aside{color:var(--ink-faint); font-size:13px; font-style:italic}
   .stamp{font-family:var(--mono); color:var(--brass); border:1px dashed rgba(216,184,119,.5);
     border-radius:8px; padding:3px 9px; font-size:10.5px; letter-spacing:.16em; text-transform:uppercase}
+  .materials{list-style:none; margin:0; padding:0; display:grid; gap:11px}
+  .materials li{font-family:var(--mono); font-size:14px; color:var(--ink); display:flex; gap:11px; align-items:baseline}
+  .materials li .mk{color:var(--vitrine-bright); font-size:12px}
+  .materials li.q{color:var(--ink-faint)}
 
   /* family footer */
   .family{border-top:1px solid var(--line)}
@@ -267,7 +269,7 @@
   @media (max-width:820px){
     .hero-grid{grid-template-columns:1fr}
     .case{order:-1; max-width:340px}
-    .prov-prose{grid-template-columns:1fr}
+    .provenance{grid-template-columns:1fr}
   }
   @media (max-width:420px){
     h1.word{font-size:clamp(38px,13vw,52px)}
@@ -387,17 +389,22 @@
       <div class="provenance">
         <div>
           <p class="eyebrow" style="margin-bottom:14px"><span class="rule"></span>Curator&rsquo;s note <span class="stamp">Provenance</span></p>
-          <div class="prov-prose">
-            <p>It began as a workaround. A wall panel ran on <code>chrome.exe --app=&hellip;</code>, and
-              the one thing it could never shake was <b>a taskbar button</b>, clutter on a display
-              that was meant to show <em>only</em> the page.</p>
-            <div>
-              <p>So Vitrine was built to do the one job properly: hold a single URL behind glass, full
-                frame, and answer to nothing but its own tray icon. <b>openHAB, Proxmox, Grafana,
-                Node-RED, a status wall</b>. Each gets its own case, its own session, its own login.</p>
-              <p class="aside">Fittingly, this very page was framed in a Vitrine before anyone saw it.</p>
-            </div>
-          </div>
+          <p>It began as a workaround. A wall panel ran on <code>chrome.exe --app=&hellip;</code>, and
+            the one thing it could never shake was <b>a taskbar button</b>, clutter on a display
+            that was meant to show <em>only</em> the page.</p>
+          <p>So Vitrine was built to do the one job properly: hold a single URL behind glass, full
+            frame, and answer to nothing but its own tray icon. <b>openHAB, Proxmox, Grafana,
+            Node-RED, a status wall</b>. Each gets its own case, its own session, its own login.</p>
+          <p class="aside">Fittingly, this very page was framed in a Vitrine before anyone saw it.</p>
+        </div>
+        <div>
+          <p class="eyebrow" style="margin-bottom:14px"><span class="rule"></span>Materials</p>
+          <ul class="materials">
+            <li><span class="mk">&#9670;</span> Rust</li>
+            <li><span class="mk">&#9670;</span> Tauri + WebView2</li>
+            <li><span class="mk">&#9670;</span> Win32 tray + no bundled frontend</li>
+            <li class="q"><span class="mk">&#9670;</span> One pane of glass</li>
+          </ul>
         </div>
       </div>
     </div>
